@@ -14,7 +14,7 @@ import com.example.doan.model.PopularModel;
 
 public class DetailActivity extends AppCompatActivity {
 
-    TextView txtTensp,txtDongia,txtDanhgia,txtDiem;
+    TextView txtTensp,txtDongia,txtDanhgia,txtDiem,txtDesc;
     ImageView ivHinh;
 
     @Override
@@ -37,6 +37,7 @@ public class DetailActivity extends AppCompatActivity {
             txtDongia.setText(bundle.getString("txtDongia"));
             txtDanhgia.setText(bundle.getString("txtDanhgia"));
             txtDiem.setText(bundle.getString("txtDiem"));
+            txtDesc.setText(bundle.getString("txtDesc"));
         }
     }
 
@@ -46,6 +47,7 @@ public class DetailActivity extends AppCompatActivity {
         txtDongia=findViewById(R.id.txtDongia);
         txtDanhgia=findViewById(R.id.txtDanhgia);
         txtDiem=findViewById(R.id.txtDiem);
+        txtDesc=findViewById(R.id.txtDesc);
     }
 
     public void QuayVe(View view){

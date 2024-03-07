@@ -9,16 +9,17 @@ public class PopularModel implements Serializable {
     private int txtDanhgia;
     private double txtDiem;
 
-
+    private String txtDesc;
     public PopularModel() {
     }
 
-    public PopularModel(String txtTensp, int ivhinh, double txtDongia, int txtDanhgia, double txtDiem) {
+    public PopularModel(String txtTensp, int ivhinh, double txtDongia, int txtDanhgia, double txtDiem, String txtDesc) {
         this.txtTensp = txtTensp;
         this.ivhinh = ivhinh;
         this.txtDongia = txtDongia;
         this.txtDanhgia = txtDanhgia;
         this.txtDiem = txtDiem;
+        this.txtDesc=txtDesc;
     }
 
     public String getTxtTensp() {
@@ -61,4 +62,11 @@ public class PopularModel implements Serializable {
         this.txtDiem = txtDiem;
     }
 
+    public String getTxtDesc() {
+        return txtDesc;
+    }
+
+    public void setTxtDesc(String txtDesc) {
+        this.txtDesc = txtDesc;
+    }
 }

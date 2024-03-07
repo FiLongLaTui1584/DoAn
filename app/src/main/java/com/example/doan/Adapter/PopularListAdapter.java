@@ -51,6 +51,7 @@ public class PopularListAdapter extends RecyclerView.Adapter<PopularListAdapter.
         holder.txtDongia.setText(popularModel.getTxtDongia()+"M");
         holder.txtDanhgia.setText(popularModel.getTxtDanhgia()+"");
         holder.txtDiem.setText(popularModel.getTxtDiem()+"");
+        holder.txtDesc.setText(popularModel.getTxtDesc());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,6 +62,7 @@ public class PopularListAdapter extends RecyclerView.Adapter<PopularListAdapter.
                 intent.putExtra("txtDongia", arr_SanPham.get(holder.getAdapterPosition()).getTxtDongia()+"M");
                 intent.putExtra("txtDanhgia", arr_SanPham.get(holder.getAdapterPosition()).getTxtDanhgia()+"");
                 intent.putExtra("txtDiem", arr_SanPham.get(holder.getAdapterPosition()).getTxtDiem()+"");
+                intent.putExtra("txtDesc", arr_SanPham.get(holder.getAdapterPosition()).getTxtDesc());
 
                 context.startActivity(intent);
             }
@@ -75,7 +77,7 @@ public class PopularListAdapter extends RecyclerView.Adapter<PopularListAdapter.
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         ImageView ivHinh;
-        TextView txtTensp, txtDongia, txtDanhgia, txtDiem;
+        TextView txtTensp, txtDongia, txtDanhgia, txtDiem, txtDesc;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             ivHinh=itemView.findViewById(R.id.ivHinh);
@@ -83,6 +85,7 @@ public class PopularListAdapter extends RecyclerView.Adapter<PopularListAdapter.
             txtDongia=itemView.findViewById(R.id.txtDongia);
             txtDanhgia=itemView.findViewById(R.id.txtDanhgia);
             txtDiem=itemView.findViewById(R.id.txtDiem);
+            txtDesc=itemView.findViewById(R.id.txtDesc);
         }
     }
 }
