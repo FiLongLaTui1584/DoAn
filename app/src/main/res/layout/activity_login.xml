@@ -42,7 +42,7 @@
             android:layout_marginTop="16dp"
             android:padding="8dp"
             android:background="@drawable/edittext_background1"
-            android:inputType="textPersonName"
+            android:inputType="textEmailAddress"
             android:hint="Nhập Email của bạn ..."
             android:textSize="14sp"
             />

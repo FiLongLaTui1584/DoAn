@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "142522457995",
+    "project_id": "login-8473f",
+    "storage_bucket": "login-8473f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:142522457995:android:8652a3a9f29505d92e598e",
+        "android_client_info": {
+          "package_name": "com.example.doan"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCo060x3WsYEEsiSscuRlzAb9_kvJRHogc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
