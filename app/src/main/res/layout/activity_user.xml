@@ -126,19 +126,42 @@
                 android:text="Trung tâm trợ giúp"
                 android:textAlignment="viewStart"/>
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginBottom="16dp"
-                android:background="@drawable/btn_background_user_2"
-                android:onClick="QuayVe"
-                android:text="Quay về"
-                android:textColor="#ffffff"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+
+
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:layout_width="120dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:background="@drawable/btn_background_user_2"
+                        android:onClick="QuayVe"
+                        android:text="Quay về"
+                        android:textColor="#ffffff"
+                        android:textSize="14sp"/>
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:layout_width="120dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="32dp"
+                        android:layout_marginBottom="16dp"
+                        android:background="@drawable/btn_background_user_2"
+                        android:id="@+id/btnLogOut"
+                        android:text="Đăng xuất"
+                        android:textColor="#ffffff"
+                        android:textSize="14sp"/>
+                </LinearLayout>
+
+
+
+
         </LinearLayout>
 
 
