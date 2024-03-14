@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
     tools:context=".Activity.MainActivity">
 
 
@@ -103,62 +105,18 @@
                 app:searchIcon="@drawable/search_2"
                 android:padding="8dp"/>
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/viewpaper"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="220dp"/>
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/constraintLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="160dp"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="24dp"
-                    android:layout_marginBottom="16dp"
-                    android:background="@drawable/main_color_banner"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.0">
-
-                    <ImageView
-                        android:id="@+id/imageView6"
-                        android:layout_width="149dp"
-                        android:layout_height="160dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:srcCompat="@drawable/crying_cat" />
-
-                    <TextView
-                        android:id="@+id/textView6"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:text="Giảm giá 90% cho \nIphone 15 Pro Max"
-                        android:textColor="@color/white"
-                        android:textSize="25dp"
-                        android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <TextView
-                    android:id="@+id/textView5"
-                    android:layout_width="100dp"
-                    android:layout_height="30dp"
-                    android:background="@drawable/orange_button_background"
-                    android:gravity="center"
-                    android:text="Mua Ngay"
-                    android:textColor="@color/white"
-                    app:layout_constraintBottom_toBottomOf="@+id/constraintLayout"
-                    app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
-                    app:layout_constraintStart_toStartOf="@+id/constraintLayout"
-                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            <me.relex.circleindicator.CircleIndicator
+                android:id="@+id/circle_indicator"
+                android:background="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="30dp"/>
 
             <TextView
                 android:id="@+id/textView8"

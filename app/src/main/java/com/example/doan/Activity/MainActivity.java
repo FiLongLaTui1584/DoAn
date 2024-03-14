@@ -2,8 +2,10 @@ package com.example.doan.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,6 +19,9 @@ import com.example.doan.model.PopularModel;
 import com.example.doan.R;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import me.relex.circleindicator.CircleIndicator;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerViewSP;
     PopularListAdapter popularListAdapter;
     ArrayList<PopularModel> arr_sanpham;
+    private ViewPager viewPager;
+    private CircleIndicator circleIndicator;
+    private PhotoAdapter photoAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +42,28 @@ public class MainActivity extends AppCompatActivity {
         addControls();
         addEvents();
         loadData();
+
+        viewPager = findViewById(R.id.viewpaper);
+        circleIndicator = findViewById(R.id.circle_indicator);
+
+        photoAdapter  = new PhotoAdapter(this, getListPhoto());
+        viewPager.setAdapter(photoAdapter);
+
+        circleIndicator.setViewPager(viewPager);
+        photoAdapter.registerDataSetObserver(circleIndicator.getDataSetObserver());
+
     }
+
+    private List<Photo> getListPhoto() {
+        List<Photo> list = new ArrayList<>();
+        list.add(new Photo(R.drawable.image1));
+        list.add(new Photo(R.drawable.image2));
+        list.add(new Photo(R.drawable.image3));
+        list.add(new Photo(R.drawable.image4));
+
+        return list;
+    }
+
     private void loadData() {
         arr_sanpham.add(new PopularModel("iPhone 15 Pro Max",R.drawable.ip15pm,31.79,10,4.9,"iPhone 15 Pro Max là điện thoại thông minh có màn hình OLED 6,7 inch với tốc độ làm mới 120Hz và bộ xử lý A17 Pro cải tiến của Apple. Nó có thiết lập ba camera với camera chính 48 MP ở mặt sau. Thiết bị này còn được gọi là Apple iPhone 15 Ultra. Nó được phát hành vào ngày 22 tháng 9 năm 2023. Điện thoại chạy trên iOS 17, lên đến iOS 17.3. Nó đi kèm bộ nhớ trong 256GB/512GB/1TB nhưng không có khe cắm thẻ nhớ."));
         arr_sanpham.add(new PopularModel("iPad Pro M2 2022",R.drawable.ipad_prom2,20.39,12,5.0,"iPad Pro M2 2022 là tablet thông minh có màn hình OLED 6,7 inch với tốc độ làm mới 120Hz và bộ xử lý A17 Pro cải tiến của Apple. Nó có thiết lập ba camera với camera chính 48 MP ở mặt sau. Thiết bị này còn được gọi là Apple iPhone 15 Ultra. Nó được phát hành vào ngày 22 tháng 9 năm 2023. Điện thoại chạy trên iOS 17, lên đến iOS 17.3. Nó đi kèm bộ nhớ trong 256GB/512GB/1TB nhưng không có khe cắm thẻ nhớ."));
