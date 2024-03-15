@@ -1,4 +1,4 @@
-package com.example.doan.Activity;
+package com.example.doan.model;
 
 public class Photo {
     private int resourceId;

@@ -1,4 +1,4 @@
-package com.example.doan.Activity;
+package com.example.doan.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
 import com.bumptech.glide.Glide;
+import com.example.doan.model.Photo;
 import com.example.doan.R;
 
 import java.util.List;

@@ -2,7 +2,6 @@ package com.example.doan.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
-import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
@@ -14,7 +13,9 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.doan.Adapter.PhotoAdapter;
 import com.example.doan.Adapter.PopularListAdapter;
+import com.example.doan.model.Photo;
 import com.example.doan.model.PopularModel;
 import com.example.doan.R;
 
@@ -56,10 +57,10 @@ public class MainActivity extends AppCompatActivity {
 
     private List<Photo> getListPhoto() {
         List<Photo> list = new ArrayList<>();
-        list.add(new Photo(R.drawable.image1));
-        list.add(new Photo(R.drawable.image2));
-        list.add(new Photo(R.drawable.image3));
-        list.add(new Photo(R.drawable.image4));
+        list.add(new Photo(R.drawable.img1));
+        list.add(new Photo(R.drawable.img2));
+        list.add(new Photo(R.drawable.img3));
+        list.add(new Photo(R.drawable.img4));
 
         return list;
     }
