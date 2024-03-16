@@ -57,10 +57,10 @@ public class MainActivity extends AppCompatActivity {
 
     private List<Photo> getListPhoto() {
         List<Photo> list = new ArrayList<>();
-        list.add(new Photo(R.drawable.img1));
-        list.add(new Photo(R.drawable.img2));
-        list.add(new Photo(R.drawable.img3));
-        list.add(new Photo(R.drawable.img4));
+        list.add(new Photo(R.drawable.img_1));
+        list.add(new Photo(R.drawable.img_2));
+        list.add(new Photo(R.drawable.img_3));
+        list.add(new Photo(R.drawable.img_4));
 
         return list;
     }
