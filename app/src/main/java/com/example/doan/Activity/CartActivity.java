@@ -1,10 +1,13 @@
 package com.example.doan.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.doan.Adapter.CartAdapter;
 import com.example.doan.R;
@@ -46,6 +49,13 @@ public class CartActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+
+        binding.checkOutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(CartActivity.this,"Thanh toán thành công !!!",Toast.LENGTH_SHORT).show();
             }
         });
     }
