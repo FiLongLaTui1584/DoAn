@@ -34,7 +34,7 @@
                     android:onClick="QuayVe" />
                 <androidx.appcompat.widget.SearchView
                     android:id="@+id/search"
-                    android:layout_width="match_parent"
+                    android:layout_width="290dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
                     android:layout_marginEnd="12dp"
@@ -46,6 +46,12 @@
                     app:closeIcon="@drawable/clear"
                     app:searchIcon="@drawable/search_2"
                     android:padding="8dp"/>
+                <ImageButton
+                    android:id="@+id/fadd"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/plus" />
 
             </LinearLayout>
 

@@ -1,7 +1,9 @@
 package com.example.doan.Activity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
@@ -15,34 +17,39 @@ import android.widget.Toast;
 
 import com.example.doan.Adapter.PhotoAdapter;
 import com.example.doan.Adapter.PopularListAdapter;
+import com.example.doan.Adapter.myadapter_2;
+import com.example.doan.databinding.ActivityMainBinding;
 import com.example.doan.model.Photo;
 import com.example.doan.model.PopularModel;
 import com.example.doan.R;
+import com.example.doan.model.model_2;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import me.relex.circleindicator.CircleIndicator;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
+    private ActivityMainBinding binding;
     ImageButton bell,iphone,ipad,phone_case,headphone,all,cart,user;
     TextView xemtatca;
-    SearchView searchView;
-    RecyclerView recyclerViewSP;
-    PopularListAdapter popularListAdapter;
-    ArrayList<PopularModel> arr_sanpham;
+    ArrayList<model_2> items;
     private ViewPager viewPager;
     private CircleIndicator circleIndicator;
     private PhotoAdapter photoAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        binding= ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
-        addControls();
+        addControls1();
         addEvents();
-        loadData();
 
         viewPager = findViewById(R.id.viewpaper);
         circleIndicator = findViewById(R.id.circle_indicator);
@@ -55,6 +62,41 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private void addControls1() {
+        DatabaseReference myref=database.getReference("product_1");
+        items=new ArrayList<>();
+
+        myref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    for(DataSnapshot issue : snapshot.getChildren()){
+                        items.add(issue.getValue(model_2.class));
+                    }
+                    if(!items.isEmpty()){
+                        binding.view1.setLayoutManager(new LinearLayoutManager(MainActivity.this,LinearLayoutManager.HORIZONTAL,false));
+                        binding.view1.setAdapter(new myadapter_2(items));
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        bell=findViewById(R.id.bell);
+        iphone=findViewById(R.id.image_iphone);
+        ipad=findViewById(R.id.image_ipad);
+        phone_case=findViewById(R.id.image_phonecase);
+        headphone=findViewById(R.id.image_headphone);
+        all=findViewById(R.id.image_viewall);
+        cart=findViewById(R.id.image_cart);
+        user=findViewById(R.id.image_user);
+        xemtatca=findViewById(R.id.xemtatca);
+    }
+
     private List<Photo> getListPhoto() {
         List<Photo> list = new ArrayList<>();
         list.add(new Photo(R.drawable.img_4));
@@ -63,13 +105,6 @@ public class MainActivity extends AppCompatActivity {
         list.add(new Photo(R.drawable.img_1));
 
         return list;
-    }
-
-    private void loadData() {
-        arr_sanpham.add(new PopularModel("iPhone 15 Pro Max",R.drawable.ip15pm,31.79,10,4.9,"iPhone 15 Pro Max là điện thoại thông minh có màn hình OLED 6,7 inch với tốc độ làm mới 120Hz và bộ xử lý A17 Pro cải tiến của Apple. Nó có thiết lập ba camera với camera chính 48 MP ở mặt sau. Thiết bị này còn được gọi là Apple iPhone 15 Ultra. Nó được phát hành vào ngày 22 tháng 9 năm 2023. Điện thoại chạy trên iOS 17, lên đến iOS 17.3. Nó đi kèm bộ nhớ trong 256GB/512GB/1TB nhưng không có khe cắm thẻ nhớ."));
-        arr_sanpham.add(new PopularModel("iPad Pro M2 2022",R.drawable.ipad_prom2,20.39,12,5.0,"iPad Pro M2 2022 là tablet thông minh có màn hình OLED 6,7 inch với tốc độ làm mới 120Hz và bộ xử lý A17 Pro cải tiến của Apple. Nó có thiết lập ba camera với camera chính 48 MP ở mặt sau. Thiết bị này còn được gọi là Apple iPhone 15 Ultra. Nó được phát hành vào ngày 22 tháng 9 năm 2023. Điện thoại chạy trên iOS 17, lên đến iOS 17.3. Nó đi kèm bộ nhớ trong 256GB/512GB/1TB nhưng không có khe cắm thẻ nhớ."));
-        arr_sanpham.add(new PopularModel("iPhone 14 Pro Max",R.drawable.ip14pm,27.39,10,4.5,"iPhone 14 Pro Max là điện thoại thông minh có màn hình OLED 6,7 inch với tốc độ làm mới 120Hz và bộ xử lý A17 Pro cải tiến của Apple. Nó có thiết lập ba camera với camera chính 48 MP ở mặt sau. Thiết bị này còn được gọi là Apple iPhone 15 Ultra. Nó được phát hành vào ngày 22 tháng 9 năm 2023. Điện thoại chạy trên iOS 17, lên đến iOS 17.3. Nó đi kèm bộ nhớ trong 256GB/512GB/1TB nhưng không có khe cắm thẻ nhớ."));
-        arr_sanpham.add(new PopularModel("iPhone 13 Pro Max",R.drawable.ip13pm,22.99,10,4.0,"iPhone 13 Pro Max là điện thoại thông minh có màn hình OLED 6,7 inch với tốc độ làm mới 120Hz và bộ xử lý A17 Pro cải tiến của Apple. Nó có thiết lập ba camera với camera chính 48 MP ở mặt sau. Thiết bị này còn được gọi là Apple iPhone 15 Ultra. Nó được phát hành vào ngày 22 tháng 9 năm 2023. Điện thoại chạy trên iOS 17, lên đến iOS 17.3. Nó đi kèm bộ nhớ trong 256GB/512GB/1TB nhưng không có khe cắm thẻ nhớ."));
     }
 
     private void addEvents() {
@@ -171,57 +206,37 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void addControls() {
-        bell=findViewById(R.id.bell);
-        iphone=findViewById(R.id.image_iphone);
-        ipad=findViewById(R.id.image_ipad);
-        phone_case=findViewById(R.id.image_phonecase);
-        headphone=findViewById(R.id.image_headphone);
-        all=findViewById(R.id.image_viewall);
-        cart=findViewById(R.id.image_cart);
-        user=findViewById(R.id.image_user);
-        xemtatca=findViewById(R.id.xemtatca);
+//    private void addControls() {
+//        searchView=findViewById(R.id.search);
+//        searchView.clearFocus();
+//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//            @Override
+//            public boolean onQueryTextSubmit(String query) {
+//                return false;
+//            }
+//
+//            @Override
+//            public boolean onQueryTextChange(String newText) {
+//                searchList(newText);
+//                return true;
+//            }
+//        });
+//    }
 
 
-
-        searchView=findViewById(R.id.search);
-        searchView.clearFocus();
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                searchList(newText);
-                return true;
-            }
-        });
-
-
-
-        recyclerViewSP=findViewById(R.id.view1);
-        arr_sanpham=new ArrayList<>();
-        popularListAdapter=new PopularListAdapter(this,arr_sanpham);
-        recyclerViewSP.setAdapter(popularListAdapter);
-        recyclerViewSP.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
-    }
-
-
-    private void searchList(String text) {
-        ArrayList<PopularModel> dataSearchList =new ArrayList<>();
-        for (PopularModel data: arr_sanpham){
-            if(data.getTxtTensp().toLowerCase().contains(text.toLowerCase())){
-                dataSearchList.add(data);
-            }
-        }
-
-        if(dataSearchList.isEmpty()){
-            Toast.makeText(this,"Không tìm thấy",Toast.LENGTH_SHORT).show();
-        } else {
-            popularListAdapter.setSearchList(dataSearchList);
-        }
-
-    }
+//    private void searchList(String text) {
+//        ArrayList<model_2> dataSearchList =new ArrayList<>();
+//        for (model_2 data: items){
+//            if(data.getTenSP().toLowerCase().contains(text.toLowerCase())){
+//                dataSearchList.add(data);
+//            }
+//        }
+//
+//        if(dataSearchList.isEmpty()){
+//            Toast.makeText(this,"Không tìm thấy",Toast.LENGTH_SHORT).show();
+//        } else {
+//            myadapter_2.setSearchList(dataSearchList);
+//        }
+//
+//    }
 }

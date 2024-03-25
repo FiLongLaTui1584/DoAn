@@ -8,7 +8,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -25,18 +25,17 @@
                     android:layout_height="35dp"
                     android:layout_marginEnd="16dp"
                     android:src="@drawable/bookmark"
-                    app:layout_constraintBottom_toBottomOf="@+id/back_button"
+                    app:layout_constraintBottom_toBottomOf="@+id/backButton"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/back_button" />
+                    app:layout_constraintTop_toTopOf="@+id/backButton" />
 
-                <ImageButton
-                    android:id="@+id/back_button"
+                <ImageView
+                    android:id="@+id/backButton"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="20dp"
                     android:background="@drawable/back"
-                    android:onClick="QuayVe"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -50,28 +49,28 @@
                     app:layout_constraintEnd_toStartOf="@+id/imageView3"
                     app:layout_constraintTop_toTopOf="@+id/imageView3" />
 
-                <View
-                    android:id="@+id/view"
-                    android:layout_width="0dp"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layoutSlider"
+                    android:layout_width="match_parent"
                     android:layout_height="290dp"
                     android:layout_margin="16dp"
                     android:background="@drawable/grey_background"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/back_button" />
+                    app:layout_constraintTop_toBottomOf="@+id/backButton">
 
-                <ImageView
-                    android:id="@+id/ivHinh"
-                    android:layout_width="300dp"
-                    android:layout_height="260dp"
-                    android:layout_margin="16dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/view"
-                    app:layout_constraintHorizontal_bias="0.495"
-                    app:layout_constraintStart_toStartOf="@+id/view"
-                    app:layout_constraintTop_toTopOf="@+id/view"
-                    app:layout_constraintVertical_bias="0.0"
-                    android:src="@drawable/ip15pm" />
+                    <androidx.viewpager2.widget.ViewPager2
+                        android:id="@+id/viewpageSlider"
+                        android:layout_width="match_parent"
+                        android:layout_height="260dp"
+                        android:layout_margin="16dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <LinearLayout
                     android:id="@+id/linearLayout1"
@@ -83,7 +82,7 @@
                     android:orientation="horizontal"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/view">
+                    app:layout_constraintTop_toBottomOf="@id/layoutSlider">
 
                     <TextView
                         android:id="@+id/txtTensp"
@@ -189,7 +188,7 @@
                 android:id="@+id/addToCartBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Mua Ngay"
+                android:text="Thêm vào giỏ hàng"
                 android:background="@drawable/main_color_button_background"
                 android:layout_margin="16dp"
                 android:textColor="@color/white"

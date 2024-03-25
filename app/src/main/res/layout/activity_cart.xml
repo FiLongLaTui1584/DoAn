@@ -25,12 +25,11 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
-                <ImageButton
-                    android:id="@+id/back_button"
+                <ImageView
+                    android:id="@+id/backBtn"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
-                    android:background="@drawable/back"
-                    android:onClick="QuayVe" />
+                    android:background="@drawable/back" />
 
                 <TextView
                     android:id="@+id/textView1"
@@ -46,9 +45,10 @@
             </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/view3"
+                android:id="@+id/cartView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"/>
 
             <TextView
                 android:id="@+id/text3"
@@ -267,7 +267,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button"
+                android:id="@+id/checkOutBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
